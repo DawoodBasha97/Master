@@ -1,28 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
-import SwiperCarousel from './components/carousal/carousal';
 import CustomNavbar from './components/menu-navigation/menubar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/home-page/homepage';
+import Dashboard from './pages/dashboard/dashboard';
+import Footer from './components/footer/footer';
+import RegisterPage from './pages/register/register';
 
 
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <CustomNavbar/>
-      <SwiperCarousel/>
+      <Router>
+      <CustomNavbar />
+      <Routes>
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+      <Footer/>
+    </Router>
     </div>
   );
 }
